@@ -1,0 +1,330 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ela Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+	<link href="assets/css/charts/chartist.min.css" rel="stylesheet">
+	<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+	
+	
+	<link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+	<link rel="stylesheet" href="../css/fenye_page.css"  rel="stylesheet">
+	
+	<style>
+   	#content-table{
+		width:90%;
+		margin:0px auto;
+	}
+	#content a{
+		text-decoration:none;
+	}
+	#content th{
+		font-size:16px;
+	}
+	#footer-nav{
+		text-align:center;
+	}
+	.mycate{
+		width:90%;
+		margin:0px auto;
+	}
+	.fontred{
+		color:red;
+	}
+	.fontgreen{
+		color:green;
+	}
+    </style>
+</head>
+
+<body>
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menu-title">UI elements</li><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>商品管理</a>
+                        	<ul class="sub-menu children dropdown-menu">                            
+	                        	<li><i class="fa fa-puzzle-piece"></i><a href="index.html">商品列表</a></li>
+	                            <li><i class="fa fa-id-badge"></i><a href="addProduct.html">商品添加</a></li>
+                        	</ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>轮播管理</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="lunbolist.html">轮播列表</a></li>
+                            <li><i class="fa fa-table"></i><a href="addLunBo.html">添加轮播</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="remen.html"> <i class="menu-icon ti-email"></i>热门管理 </a>
+                    </li>
+                    <li>
+                        <a href="edituser.html"> <i class="menu-icon fa fa-line-chart"></i>用户管理 </a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>订单管理</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="orders.html">订单列表</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel" style="height:100%">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- /#header -->
+        <!-- Content -->
+        <div class="pagecontent" style="min-height:564px;background-color:white;">
+            <!-- 主体内容 -->
+            <div class=".mynav" style="padding-left:50px;margin-bottom:20px;">
+            	<h2>订单管理</h2>
+            </div>
+            <div class="mycate">
+            <span>时间范围</span>
+           <select>
+			  <option value ="0" selected>今天</option>
+			  <option value ="1">近7天</option>
+			  <option value="2">近30天</option>
+			  <option value="3">不限时间</option>
+			</select>
+			</div>
+           <div id="content-table">
+	         	<table class="table" id="content">
+										
+				</table>
+	           
+	           <div id="footer-nav" class="zxf_pagediv"></div>
+           </div>
+           
+        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+    </div>
+    
+    <!-- /#right-panel -->
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/lib/chartist/chartist.min.js"></script>
+<script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
+<script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
+<script src="assets/weather/js/weather-init.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+<script src="assets/js/init/fullcalendar-init.js"></script>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+
+<script src="../js/layer.js" charset="utf-8"></script>
+<script src="../js/mylayer.js" charset="utf-8"></script>
+<script src="../js/fenye_page.js" charset="utf-8"></script>
+
+<script>
+var start = 0; //开始位置
+var length = 5;//每次请求的数据条数
+var total = 0;  //总的数据长度
+var pageCount;
+var currcateid = 0;//当前类别id
+
+
+jQuery(function($) {
+	console.log("开始");
+	request_total(currcateid);
+});
+
+
+$(".mycate select").change(function(){
+	console.log("changed");
+	var val = $(this).children(":selected").val();
+	currcateid = val;
+
+	request_total(currcateid);
+});
+
+
+//获取总的条目数
+function request_total(cateid){
+	$.ajax({
+		type:"GET",
+		url:"../totalOrdersByCate",
+		dataType:"json",
+		data:{
+			cateid:cateid
+		},
+		success:function(data){
+			console.log(data);
+			if(data.retcode==="0"){
+				total = data.data;
+				pageCount =Math.ceil(total/length);
+				console.log(pageCount);
+				$(".zxf_pagediv").createPage({
+					pageNum: pageCount,
+					current: 1,
+					backfun: function(e) {
+						console.log(e);
+						loadData(e.current,cateid);
+					}
+				});
+				loadData(1,cateid);
+			}
+		},
+		error:function(xhr,error,status){
+			console.log("request_total");
+			console.log(error);
+		}
+	})
+}
+
+
+ function loadData(pageid,cateid){
+	 mylayer.showLoading("商品加载中");
+	 $.ajax({
+		 type:"GET",
+		 url:"../getOrdersByCate",
+		 data:{
+			 start:(pageid-1)*length,
+			 length:length,
+			 cateid:cateid
+		 },
+		 dataType:"json",
+		 success:function(data){
+				mylayer.closeLoading();
+			    if(data.retcode==="0"){
+			    	//添加数据
+			    	
+			    	createOrderElement(data.data);
+			    	
+					scroll(0,0)
+			    }else{	
+			    	/* mylayer.tips(data.data); */
+			    }
+		 },
+		 error:function(xhr,status,error){
+			 mylayer.tips(data.data);
+		 }
+	 })
+ }
+
+ 
+ 
+//进行界面的显示
+ function createOrderElement(data){
+ 	console.log(data);
+ 	var content = $("#content");
+ 	content.empty();
+ 	//从里面拿数据显示
+ 	for(var i=0;i<data.length;i++){
+ 		var order = data[i];
+ 		var tbody = $("<tbody>");
+ 		var o_id_tr = $('<tr class="success">\
+ 						<th colspan="5">订单编号:<span id="orderid">'+order.o_id+'</span><span> 创建时间:'+order.o_ordertime+' </span></th>\
+ 					</tr>');
+ 		var title_tr = $('<tr class="warning">\
+ 						       <th>图片</th>\
+ 						       <th>商品</th>\
+ 						       <th>价格</th>\
+ 						       <th>数量</th>\
+ 						       <th>小计</th>\
+ 					      </tr>');
+ 		tbody.append(o_id_tr);
+ 		tbody.append(title_tr);
+ 		for(var j=0;j<order.orderItems.length;j++){
+ 			var orderItem = order.orderItems[j];
+ 			//console.log(orderItem);
+ 			var item_tr = $('<tr class="active">');
+ 			var item_td_img = $('<td width="20%">');
+ 			var image = $('<img src="../images/'+orderItem.product.pro_image+'" width="70" height="60">')
+ 			item_td_img.append(image);
+ 			item_tr.append(item_td_img);
+ 		    var item_td_name = $('<td width="25%"><a target="_blank">'+orderItem.product.pro_name+' </a></td>')	
+ 		 	item_tr.append(item_td_name);
+ 		    
+ 		    var item_price_td = $('<td width="20%">'+orderItem.product.pro_price+'</td>')
+ 		    item_tr.append(item_price_td);
+ 		    
+ 		    var item_count_td = $('<td width="15%">'+orderItem.o_count+'</td>')
+ 		    item_tr.append(item_count_td);
+ 		
+ 		    var item_subtotal_td = $('<td width="20%"><span class="subtotal">'+orderItem.o_subtotal+'</span></td>')
+ 		    item_tr.append(item_subtotal_td);
+ 		    tbody.append(item_tr);
+ 		}
+ 		var order_pay_tr = $('<tr>\
+ 							<td width="25%"></td>\
+ 							<td width="25%"></td>\
+ 							<td colspan="2" width="25%">总计:'+order.o_total+' </td>\
+ 							<td width="25%">\
+ 								<span style="font-size:20px;font-weight:bold" '+(order.o_state==0?'class="fontred"':'class="fontgreen"')+'>'+(order.o_state==0?'未付款':'已支付')+'</span>\
+ 							</td>\
+ 					<tr>');
+ 		tbody.append(order_pay_tr);
+ 		content.append(tbody);
+ 	}
+
+ }
+ 
+</script>
+</body>
+</html>

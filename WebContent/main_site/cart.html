@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一号店</title>
+    <link type="text/css" rel="stylesheet" href="css/mystyle.css"/>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+		.container{
+			text-align:center;
+		}
+	     .small-button {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border: none;
+                margin-left:10px;
+                margin-right:10px;
+            }
+              .mycenter {
+                text-align: center;
+            }
+             #totalCount, #totalPrice {
+                font-size:25px;
+                color: red;
+            }
+            #totalPrice {
+                display: inline-block;
+                width: 150px;
+                text-align:left;
+            }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="soubg">
+        <div class="sou fl">
+            <div class="s_city_b">
+                <span>送货至：湖北武汉</span>
+            </div>
+        </div>
+        <div class="fr top_right">
+            <div class="fl">
+                <span id="span_l">你好! 请<a href="login.html">登录</a></span>
+                <a href="register.html" style="color:#ff4e00;" id="show_11">免费注册</a>
+                <b onclick="cancellogin()" style="color:#ff4e00;display:none;cursor:pointer" id="show_12">退出登录</b>
+                &nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|
+            </div>
+            <ul class="ss">
+                <li class="ss_list">
+                    <a href="#">收藏夹</a>
+                </li>
+                <!--需要有向下的小箭头就添加ss_listBg-->
+                <li class="ss_list ss_listBg">
+                    <a href="#">客户服务</a>
+
+                    <div class="ss_list_bg">
+                        <div class="ss_list_c">
+                            <ul>
+                                <li><a href="#">包裹跟踪</a></li>
+                                <li><a href="#">常见问题</a></li>
+                                <li><a href="#">在线退款</a></li>
+                                <li><a href="#">在线投诉</a></li>
+                                <li><a href="#">配送范围</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="ss_list">
+                    <a href="#">网站导航</a>
+                </li>
+            </ul>
+            <span class="fl">&nbsp;|&nbsp;关注我们：</span>
+                <span class="s_sh">
+                    <a href="#" class="sh1">新浪</a>
+                    <a href="#" class="sh2">微信</a>
+                </span>
+                <span class="fr">|&nbsp;
+                    <a href="#">手机版&nbsp;
+                        <img src="images/s_tel.png" align="absmiddle"/>
+                    </a>
+                </span>
+        </div>
+    </div>
+</header>
+<!--网页头部-->
+<div class="top">
+        <div class="logo">
+            <a href="Index.html">
+                <img src="../images/mainlogo.jpeg" style="width:200px;height:72px;"/>
+            </a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="search" value="" placeholder="请输入关键字" class="s_ipt"/>
+                <input type="submit" value="搜索" class="s_btn"/>
+            </form>
+            <div class="fl">
+                <a href="#">咖啡</a>
+                <a href="#">iphone 6S</a>
+                <a href="#">新鲜美食</a>
+                <a href="#">蛋糕</a>
+                <a href="#">日用品</a>
+                <a href="#">连衣裙</a>
+            </div>
+        </div>
+  
+    </div>
+<!-- 网页主体 -->
+<div class="container">
+ 		<h1>我的购物车页面</h1>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" id="category">
+					</ul>
+					<ul class="nav navbar-nav navbar-left"
+						style="margin-left: 10px; line-height: 50px">
+						<li><a class="glyphicon glyphicon-arrow-left" href="javascript:history.back()"> 返回</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<div class="row" id="noContent" style="display:none;height:200px;">
+			
+		</div>
+		<div class="row" id="contentPanel" style="dispaly:none">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="content">
+					
+				</table>
+				<div id="cart-footer">
+	                <div class="text-right" style="font-size:15px">
+	                    <span>总共选中了<span id="totalCount">0</span>件商品</span>
+	                    <span>总计: <span id="totalPrice">¥0.00</span></span>
+	                    <button class="btn btn-danger btn-lg" id="submitOrder">去结算</button>
+	                </div>
+            	</div>
+			</div>
+		</div>
+</div>
+
+<!--网页底部-->
+<footer class="center">
+    <!-- Footer -->
+    <div class="b_btm_bg b_btm_c">
+        <ul class="b_btm">
+            <li>
+                <a><img src="images/b1.png" width="62" height="62"/></a>
+                <div><h2>正品保障</h2>正品行货 放心购买</div>
+            </li>
+            <li >
+                <a><img src="images/b2.png" width="62" height="62"/></a>
+                <div><h2>满38包邮</h2>满38包邮 免运费</div>
+            </li>
+            <li>
+                <a><img src="images/b3.png" width="62" height="62"/></a>
+                <div><h2>天天低价</h2>天天低价 畅选无忧</div>
+            </li>
+            <li>
+                <a><img src="images/b4.png" width="62" height="62"/></a>
+                <div><h2>准时送达</h2>收货时间由你做主</div>
+            </li>
+        </ul>
+    </div>
+    <div class="b_nav">
+        <dl>
+            <dt><a href="#">新手上路</a></dt>
+            <dd><a href="#">售后流程</a></dd>
+            <dd><a href="#">购物流程</a></dd>
+            <dd><a href="#">订购方式</a></dd>
+            <dd><a href="#">隐私声明</a></dd>
+            <dd><a href="#">推荐分享说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">配送与支付</a></dt>
+            <dd><a href="#">货到付款区域</a></dd>
+            <dd><a href="#">配送支付查询</a></dd>
+            <dd><a href="#">支付方式说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">会员中心</a></dt>
+            <dd><a href="#">资金管理</a></dd>
+            <dd><a href="#">我的收藏</a></dd>
+            <dd><a href="#">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">服务保证</a></dt>
+            <dd><a href="#">退换货原则</a></dd>
+            <dd><a href="#">售后服务保证</a></dd>
+            <dd><a href="#">产品质量保证</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">联系我们</a></dt>
+            <dd><a href="#">网站故障报告</a></dd>
+            <dd><a href="#">购物咨询</a></dd>
+            <dd><a href="#">投诉与建议</a></dd>
+        </dl>
+        <div class="b_tel_bg">
+            <a href="#" class="b_sh1">新浪微博</a>
+            <a href="#" class="b_sh2">腾讯微博</a>
+
+            <p>
+                服务热线：<br/>
+                <span>400-123-4567</span>
+            </p>
+        </div>
+        <div class="b_er">
+            <div class="b_er_c"><img src="images/er.gif" /></div>
+            <img src="images/ss.png"/>
+        </div>
+    </div>
+    <div class="btmbg">
+        <div class="btm">
+            备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright© 1号店网上超市 2007-2016，All Rights Reserved. 复制必究 ,
+            Technical Support: Dgg Group <br/>
+            <img src="images/b_1.gif"/>
+            <img src="images/b_2.gif"/>
+            <img src="images/b_3.gif"/>
+            <img src="images/b_4.gif"/>
+            <img src="images/b_5.gif"/>
+            <img src="images/b_6.gif"/>
+        </div>
+    </div>
+    <!--Footer -->
+</footer>
+
+</body>
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+<script type="text/javascript" src="../js/layer.js"></script>
+<script type="text/javascript" src="../js/mylayer.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+<script>
+function showLoginPanel(){
+	if(cookie.get("username")!=null&&cookie.get("username")!=""){
+		$("#span_l").html("欢迎您: "+cookie.get("username"));
+		$("#show_11").hide();
+		$("#show_12").show();
+	}else{
+		$("#span_l").html("你好! 请");
+		var a = $("<a href='login.html'>登录</a>")
+		$("#span_l").append(a);
+		$("#show_11").show();
+		$("#show_12").hide();
+	}
+}
+function cancellogin(){
+	cookie.set("username","");
+	showLoginPanel();
+	mylayer.tips("退出成功");
+}
+
+
+
+
+
+
+
+//怎么获取上一个页面拿到的cartList对象   获取到这对象后  才可以将数据遍历显示到table中
+var cartList = null;
+var selectCartList = null;  //以及选中的商品信息
+$(function(){
+	showLoginPanel();
+	updateCart();
+	//绑定全选按钮的事件
+	bindAllChecked();
+	//绑定当个选项框的事件
+	bindSelectOneChecked();
+	//绑定下单按钮
+	submitOrder();
+});
+
+function updateCart(){
+	var cartListStr = localStorage.getItem("cartList");
+	if(cartListStr!=null&&cartListStr!="{}"){
+		console.log("sss")
+		$("#noContent").hide();
+		$("#contentPanel").show();
+		cartList = JSON.parse(cartListStr);
+		console.log(JSON.parse(cartListStr));
+		//填充购物车的数据到界面上
+		var content = $("#content");
+		content.empty();
+		var thead = $("<tr>\
+				    <th><input id='selectAll' type='checkbox'>全选</th>\
+					<th>商品id</th>\
+					<th>图片</th>\
+					<th>商品名称</th>\
+					<th>价格</th>\
+					<th>数量</th>\
+					<th>小计</th>\
+					<th>操作</th>\
+				</tr>");
+		content.append(thead);
+		for(var key in cartList){
+			var product = cartList[key];
+			var tr = $("<tr>");
+	
+			var checkbox_td = $("<td><input name='selectOne' type='checkbox'></td>");
+			tr.append(checkbox_td);
+			
+			var pro_id_td = $("<td>"+product.pro_id+"</td>"); 
+			tr.append(pro_id_td);
+			
+			var pro_image_td = $("<td><img style='width:50px' src='../images/"+product.pro_image+"'/></td>");
+			tr.append(pro_image_td);
+			
+			var pro_id_name = $("<td>"+product.pro_name+"</td>"); 
+			tr.append(pro_id_name);
+			
+	
+			var pro_id_price = $("<td><span>¥:</span><span class='price'>"+product.pro_price.toFixed(2)+"</span></td>"); 
+			tr.append(pro_id_price);
+		
+			/*
+			 <button class="small-button">-</button>
+                <input class="center count" type="text" size="2" value="1">
+                <button class="small-button">+</button>
+			*/
+			var number_td = $("<td>");
+			var addButton = $("<button class='small-button' onclick='addProuct("+product.pro_id+",this)'>+</button>");
+			var pro_num_td = $("<input class='mycenter count' type='text' size='2' value='"+product.pro_num+"'>");
+			var subButton = $("<button class='small-button' onclick='subProuct("+product.pro_id+",this)'>-</button>")
+			number_td.append(addButton);
+			number_td.append(pro_num_td);
+			number_td.append(subButton);
+			tr.append(number_td);
+			//小计
+			var subTotal_td = $("<td style='width:120px;'>¥:"+(product.pro_num*product.pro_price).toFixed(2)+"</td>");
+			tr.append(subTotal_td);
+			
+			var deleteBtn = $("<a href='javascipt:void(0)' onclick='deleteProduct("+product.pro_id+",this)'>删除</a>");
+			
+			var operate_td = $("<td>");
+		
+			operate_td.append(deleteBtn);
+			
+			tr.append(operate_td);
+			content.append(tr);	
+		}
+	}else{
+	    mylayer.tips("你的购物车是空的");
+	    $("#noContent").show();
+	    $("#contentPanel").hide();
+	}
+}
+
+function addProuct(pro_id,current_obj){
+	console.log("商品id:"+pro_id);
+	cartList[pro_id].pro_num++;
+    $(current_obj).next().val(cartList[pro_id].pro_num);
+	//更新小计
+	var subTotal = cartList[pro_id].pro_num*cartList[pro_id].pro_price;
+	$(current_obj).parent().next().html("¥:"+subTotal.toFixed(2));
+	
+	calcTotal();
+}
+
+function subProuct(pro_id,current_obj){
+	//console.log("商品id:"+pro_id)
+	var current_num = cartList[pro_id].pro_num;
+	if(current_num>1){
+		cartList[pro_id].pro_num--;
+		$(current_obj).prev().val(cartList[pro_id].pro_num);
+		//更新小计
+		var subTotal = cartList[pro_id].pro_num*cartList[pro_id].pro_price;
+		$(current_obj).parent().next().html("¥:"+subTotal.toFixed(2));
+		//更新总计
+	}else{
+		if(confirm("是否要删除该商品")){
+		   delete cartList[pro_id];
+			   //updateCart(); 
+		   //找当前标签的父标签的 父标签  删除掉
+		   $(current_obj).parent().parent().remove();
+		}
+	}
+	calcTotal();
+}
+
+function bindAllChecked(){
+    $('#selectAll').on('change', function(evt) {
+        // 获取事件源的两种方式: evt.target或者this
+        // 这里拿到的是原生的JavaScript对象
+        if ($(this).prop('checked')) {  //选中
+            $('td input[type="checkbox"]').prop('checked', true); //全部选中
+            calcTotal();  //计算总的价格
+        } else {   //不选中
+            $('td input[type="checkbox"]').prop('checked', false);//全部不选中
+            $('#totalCount').text('0');
+            $('#totalPrice').html('¥0.00');
+        }
+    });
+}
+
+function bindSelectOneChecked(){
+	 // 为单个商品项的复选框绑定改变事件
+    $('input[name="selectOne"]').on('change', function() {
+        calcTotal();
+        if (!$(this).prop('checked')) {
+            $('#selectAll').prop('checked', false);
+        }
+    });
+}
+
+ // 计算总计
+function calcTotal() {
+    var checkBoxes = $('input[name="selectOne"]');
+    var priceSpans = $('td .price');
+    console.log(priceSpans);
+    var countInputs = $('input.mycenter.count');
+    var totalCount = 0;
+    var totalPrice = 0;
+    //初始化一个选中的购物车对象
+    selectCartList = {};
+    for (var i = 0; i < priceSpans.length; i += 1) {
+        // 复选框被勾中的购物车项才进行计算
+        if ($(checkBoxes[i]).prop('checked')) {
+            // 强调: jQuery对象使用下标运算或get方法会还原成原生的JavaScript对象
+            var price = parseFloat($(priceSpans[i]).text());
+            var count = parseInt($(countInputs[i]).val());
+            console.log(price);
+            console.log(count);
+            totalCount += count;
+            totalPrice += price * count;
+            //获取商品的id
+            var temp_pro_id = $(checkBoxes[i]).parent().next().text();
+            selectCartList[temp_pro_id] = cartList[temp_pro_id];
+        }
+    }
+    $('#totalCount').text(totalCount);
+    $('#totalPrice').html('¥' + totalPrice.toFixed(2));
+    //更新购物车的数据
+    localStorage.setItem("cartList",JSON.stringify(cartList));
+    localStorage.setItem("selectCartList",JSON.stringify(selectCartList));    
+}
+ 
+function deleteProduct(pro_id,obj){
+	if(confirm("是否要删除该商品")){
+		   delete cartList[pro_id];
+		   //更新数据 更新界面
+		   localStorage.setItem("cartList",JSON.stringify(cartList));
+		   //updateCart(); 
+		   $(obj).parent().parent().remove();
+		   calcTotal();
+	}
+}
+
+//提交订单到服务器了
+function submitOrder(){
+	$("#submitOrder").click(function(){
+		 //需要判断用户登录
+		if($("#totalCount").text()=="0"){
+			mylayer.showError("还没有选择商品");
+			return;
+		}
+		if(cookie.get("username")!=null&&cookie.get("username")!=""){
+			console.log("用户已经登录");
+			//开始下单了
+			//请选择收货地址 然后下单
+			//跳订单详情页面   填用户名   电话  地址  （保存和选择收货地址）
+			window.location.href = "orderDetail.html";	
+		}else{
+			var callback = window.location.href;
+			window.location.href = "login.html?callback="+callback;
+		}
+		 
+	});
+}
+</script>
+</html>

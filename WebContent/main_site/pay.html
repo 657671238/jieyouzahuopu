@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>订单支付页面</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<style>
+	.mybtn{
+		text-align:center;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1 align="center">订单号：<span id="o_id"></span> 支付中.....</h1>
+		<div style="text-align:center">
+		     <h3>微信或支付宝扫码支付</h3>
+		     <img src="../images/pay.png">
+		</div>
+		<div class="mybtn">
+			<button type="button" id="confirmBtn" class="btn btn-warning btn-lg">确定支付</button>
+			<button type="button" id="cancalBtn" class="btn btn-warning btn-lg">取消支付</button>
+		</div>
+	</div>
+    <script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="../js/layer.js"></script>
+    <script type="text/javascript" src="../js/mylayer.js"></script>
+    <script type="text/javascript" src="../js/cookie.js"></script>
+	<script type="text/javascript">
+		//判断用户登录  没有登录 则跳登录
+	    if(cookie.get("username")!=null&&cookie.get("username")!=""){
+			   console.log("用户已经登录了 可以支付");
+			   var o_id = mylayer.getQueryString("o_id");
+			   $("#o_id").html(o_id);
+			   $("#confirmBtn").click(function(){
+				     mylayer.showLoading("拼命加载中");
+				     //更新订单的状态
+				     $.ajax({
+				    	 type:"POST",
+				    	 url:"../updateOrderState",
+				    	 data:{
+				    		 o_id:o_id
+				    	 },
+				    	 dataType:"json",
+				    	 success:function(data){
+				    		 mylayer.closeLoading();
+				    		 console.log(data);
+				    		 if(data.retcode==="0"){
+				    			 mylayer.showCallBackMessage("支付成功,跳转我的订单",function(){
+										//跳转到支付页面进行付款的
+										window.location.href = "myOrders.html";
+								 });
+				    		 }else{
+				    			 mylayer.showCallBackMessage("支付失败,跳转我的订单",function(){
+										//跳转到支付页面进行付款的
+										window.location.href = "myOrders.html";
+								 });
+				    		 }
+				    		 
+				    	 },
+				    	 error:function(xhr,error,status){
+				    		 mylayer.showCallBackMessage("支付失败,跳转我的订单",function(){
+									//跳转到支付页面进行付款的
+									window.location.href = "myOrders.html";
+							 });
+				    	 }
+				     })
+			   });
+			   $("#cancalBtn").click(function(){
+				   mylayer.showCallBackMessage("用户取消支付",function(){
+						//跳转到支付页面进行付款的
+						window.location.href = "myOrders.html";
+				 });
+			   })
+	    }else{
+			var callback = window.location.href;
+		    window.location.href = "login.html?callback="+callback;
+		};
+	</script>
+
+</body>
+</html>

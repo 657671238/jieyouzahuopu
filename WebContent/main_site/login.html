@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>登录页面</title>
+<meta name="description" content="Ela Admin - HTML5 Admin Template">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/themify-icons.css">
+<link rel="stylesheet" href="../css/pe-icon-7-filled.css">
+<link rel="stylesheet" href="../css/flag-icon.min.css">
+<link rel="stylesheet" href="../css/cs-skin-elastic.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/load.css">
+
+
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800'
+	rel='stylesheet' type='text/css'>
+<style>
+html,body{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+.myhide {
+	display: none;
+}
+body {
+	  background-image:url(./images/login-back.jpg );
+	  background-repeat:no-repeat; 
+	  background-size:100% 100%;  
+	  -moz-background-size:100% 100%;
+}
+</style>
+
+</head>
+<body>
+
+	<div class="innerBody cf">
+		<div class="tableWrap fr">
+			<div class="login-content">
+				<div class="login-form" style="position:absolute;left:68%;top:30%;background-color:rgba(238,232,170,0.5)">
+					<form>
+						<div class="tableTap cf">
+							<label for="name">用户名</label> <input type="text"
+								class="form-control" id="name" placeholder="username">
+						</div>
+						<div class="tableTap cf">
+							<label for="password">密码</label> <input type="password"
+								class="form-control" id="password" placeholder="Password">
+						</div>
+						
+						<div class="tableTap cf">
+							<div>
+								<label>完成验证：</label>
+								<div id="captcha2">
+									<p id="wait2">正在加载验证码......</p>
+								</div>
+							</div>
+							<br>
+							<p id="notice2" class="myhide">请先完成验证</p>
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox"> 记住密码
+							</label> <label class="pull-right"> <a href="#">忘记密码</a>
+							</label>
+						</div>
+
+
+						<button type="submit"
+							class="btn btn-success btn-flat m-b-30 m-t-30"
+							style="background-color: red" id="btnSubmit">登录账号</button>
+						<div class="register-link m-t-15 text-center">
+							<p>
+								还没注册 ? <a href="register.html"> 点击这里注册</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+	<script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.matchHeight.min.js"></script>
+	<script src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/gt.js"></script>
+	<script type="text/javascript" src="../js/layer.js"></script>
+	<script type="text/javascript" src="../js/mylayer.js"></script>
+	<script type="text/javascript" src="../js/cookie.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$("#btnSubmit").prop("disabled", "disabled");
+		});
+
+		var isExistName = false;
+		var isExistPassword = false;
+		var isExistCode = false;
+		//验证按钮是否 可以点击了  
+		function checkLoginBtnIsEnable() {
+			if (isExistName == true && isExistPassword == true
+					&& isExistCode == true) {
+				$("#btnSubmit").prop("disabled", "");
+			} else {
+				$("#btnSubmit").prop("disabled", "disabled");
+			}
+		}
+
+		//监听姓名输入
+		$("#name").bind("input propertychange", function() {
+			if ($(this).val() != '') {
+				isExistName = true;
+			} else {
+				isExistName = false;
+			}
+			checkLoginBtnIsEnable();
+		});
+		//监听密码输入
+		$("#password").bind("input propertychange", function() {
+			if ($(this).val() != '') {
+				isExistPassword = true;
+			} else {
+				isExistPassword = false;
+			}
+			checkLoginBtnIsEnable();
+		});
+		console.log("456");
+
+		var handler2 = function(captchaObj) {
+			$("#btnSubmit").click(function(e) {
+				var result = captchaObj.getValidate();
+				if (!result) {
+					//验证失败  显示提示框  
+					$("#notice2").show();
+					setTimeout(function() {
+						// 2秒后提示框 消失
+						$("#notice2").hide();
+					}, 2000);
+				} else {
+					// 第三方验证成功了  走登录的逻辑代码
+					// 服务器在验证
+					console.log("123");
+					$.ajax({
+						url : "../userLogin",
+						type : "POST",
+						dataType : "json",
+						data : {
+							name : $("#name").val(),
+							password : $("#password").val(),
+							//下面的这3个参数是用来验证 验证码是否正确的
+							geetest_challenge : result.geetest_challenge,
+							geetest_validate : result.geetest_validate,
+							geetest_seccode : result.geetest_seccode
+						},
+						success : function(data) {
+							console.log(data);
+							if (data.retcode === "0") {
+								//跳转到用户的主页
+								//怎么记住用户信息  用户信息存储在哪里  jsp 存在到session
+								//思考 怎么讲用户的名称携带到前台的页面中
+								//写一个Cookie
+								//js去写Cookie
+								cookie.set("username",$('#name').val());
+								cookie.set("userid",data.data.u_id);
+								mylayer.showCallBackMessage("登录成功", function() {
+									window.location.href = "Index.html";
+								});
+							} else {
+								mylayer.showError(data.data);
+								//重新加载数据登录页面  将已经填写的数据清空
+								//怎么重新加载验证码
+								$("#btnSubmit").prop("disabled", "disabled");
+								$("#captcha2").empty();
+								//解除上一次按钮的监听事件
+								$("#btnSubmit").unbind("click");
+								getCheckCode();
+							}
+						}
+					})
+				}
+				e.preventDefault();
+			});
+			console.log(captchaObj);
+			// 将验证码加到id为captcha的元素里，同时会有三个input的值用于表单提交
+			captchaObj.appendTo("#captcha2");
+			captchaObj.onReady(function() {
+				$("#wait2").hide();
+			});
+			captchaObj.onSuccess(function() {
+				console.log("success");
+				var result = captchaObj.getValidate();
+				if (result) {
+					isExistCode = true;
+				} else {
+					isExistCode = false;
+				}
+				checkLoginBtnIsEnable();
+			});
+			// 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+		};
+		//请求到验证信息的
+		getCheckCode();
+		function getCheckCode() {
+			$.ajax({
+				url : "../gt/register2?t=" + (new Date()).getTime(), // 加随机数防止缓存
+				type : "get",
+				dataType : "json",
+				success : function(data) {
+					console.log(data);
+					// 调用 initGeetest 初始化参数
+					// 参数1：配置参数
+					// 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口
+					initGeetest({
+						gt : data.gt,
+						challenge : data.challenge,
+						new_captcha : data.new_captcha, // 用于宕机时表示是新验证码的宕机
+						offline : !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+						product : "popup", // 产品形式，包括：float，popup
+						width : "100%"
+					// 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+					}, handler2);
+				}
+			});
+		}
+	</script>
+
+
+
+</body>
+</html>

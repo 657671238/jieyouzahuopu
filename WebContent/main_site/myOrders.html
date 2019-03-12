@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一号店</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/mystyle.css"/>
+    <link rel="stylesheet" href="../css/fenye_page.css"  rel="stylesheet">
+<style type="text/css">
+    	.soubg{
+    		position:fixed;
+    		z-index:9999;
+    	}
+	.nav{
+		width:100%;
+	}
+	.psps{
+		color:red;
+		font-size:20px;
+	}
+</style>
+</head>
+<body>
+<!--网页头部-->
+<header>
+    <div class="soubg">
+        <div class="sou fl">
+            <div class="s_city_b">
+                <span>送货至：湖北武汉</span>
+            </div>
+        </div>
+        <div class="fr top_right">
+            <div class="fl">
+                <span id="span_l">你好! 请<a href="login.html">登录</a></span>
+                <a href="register.html" style="color:#ff4e00;" id="show_11">免费注册</a>
+                <b onclick="cancellogin()" style="color:#ff4e00;display:none;cursor:pointer" id="show_12">退出登录</b>
+                &nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|
+            </div>
+            <ul class="ss">
+                <li class="ss_list">
+                    <a href="#">收藏夹</a>
+                </li>
+                <!--需要有向下的小箭头就添加ss_listBg-->
+                <li class="ss_list ss_listBg">
+                    <a href="#">客户服务</a>
+
+                    <div class="ss_list_bg">
+                        <div class="ss_list_c">
+                            <ul>
+                                <li><a href="#">包裹跟踪</a></li>
+                                <li><a href="#">常见问题</a></li>
+                                <li><a href="#">在线退款</a></li>
+                                <li><a href="#">在线投诉</a></li>
+                                <li><a href="#">配送范围</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="ss_list">
+                    <a href="#">网站导航</a>
+                </li>
+            </ul>
+            <span class="fl">&nbsp;|&nbsp;关注我们：</span>
+                <span class="s_sh">
+                    <a href="#" class="sh1">新浪</a>
+                    <a href="#" class="sh2">微信</a>
+                </span>
+                <span class="fr">|&nbsp;
+                    <a href="#">手机版&nbsp;
+                        <img src="images/s_tel.png" align="absmiddle"/>
+                    </a>
+                </span>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="logo">
+            <a  href="Index.html">
+                <img src="../images/mainlogo.jpeg" style="width:200px;height:72px;"/>
+            </a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="search" value="" placeholder="请输入关键字" class="s_ipt"/>
+                <input type="submit" value="搜索" class="s_btn"/>
+            </form>
+            <div class="fl">
+                <a href="#">咖啡</a>
+                <a href="#">iphone 6S</a>
+                <a href="#">新鲜美食</a>
+                <a href="#">蛋糕</a>
+                <a href="#">日用品</a>
+                <a href="#">连衣裙</a>
+            </div>
+        </div>
+        <div class="i_car">
+            <div class="car_t">购物车</div>
+        </div>
+    </div>
+</header>
+
+
+	<div class="container" style="text-align:center">
+		<h1>我的订单页面</h1>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" id="category">
+					</ul>
+					<ul class="nav navbar-nav navbar-left"
+						style="margin-left: 10px; line-height: 50px">
+						<li><a href="indexHome.html">首页</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- 显示订单和订单项 -->
+		<div class="row">
+			<div style="margin: 0 auto; margin-top: 10px; width: 950px;">
+				<table class="table table-bordered" id="content">						
+				
+ 				</table>
+			</div>
+		</div>
+		<div style="text-align: center;">
+			<div id="footer-nav" class="zxf_pagediv"></div>
+		</div>
+	</div>
+
+<!--网页底部-->
+<footer class="center">
+    <!-- Footer -->
+    <div class="b_btm_bg b_btm_c">
+        <ul class="b_btm">
+            <li>
+                <a><img src="images/b1.png" width="62" height="62"/></a>
+                <div><h2>正品保障</h2>正品行货 放心购买</div>
+            </li>
+            <li >
+                <a><img src="images/b2.png" width="62" height="62"/></a>
+                <div><h2>满38包邮</h2>满38包邮 免运费</div>
+            </li>
+            <li>
+                <a><img src="images/b3.png" width="62" height="62"/></a>
+                <div><h2>天天低价</h2>天天低价 畅选无忧</div>
+            </li>
+            <li>
+                <a><img src="images/b4.png" width="62" height="62"/></a>
+                <div><h2>准时送达</h2>收货时间由你做主</div>
+            </li>
+        </ul>
+    </div>
+    <div class="b_nav">
+        <dl>
+            <dt><a href="#">新手上路</a></dt>
+            <dd><a href="#">售后流程</a></dd>
+            <dd><a href="#">购物流程</a></dd>
+            <dd><a href="#">订购方式</a></dd>
+            <dd><a href="#">隐私声明</a></dd>
+            <dd><a href="#">推荐分享说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">配送与支付</a></dt>
+            <dd><a href="#">货到付款区域</a></dd>
+            <dd><a href="#">配送支付查询</a></dd>
+            <dd><a href="#">支付方式说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">会员中心</a></dt>
+            <dd><a href="#">资金管理</a></dd>
+            <dd><a href="#">我的收藏</a></dd>
+            <dd><a href="#">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">服务保证</a></dt>
+            <dd><a href="#">退换货原则</a></dd>
+            <dd><a href="#">售后服务保证</a></dd>
+            <dd><a href="#">产品质量保证</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">联系我们</a></dt>
+            <dd><a href="#">网站故障报告</a></dd>
+            <dd><a href="#">购物咨询</a></dd>
+            <dd><a href="#">投诉与建议</a></dd>
+        </dl>
+        <div class="b_tel_bg">
+            <a href="#" class="b_sh1">新浪微博</a>
+            <a href="#" class="b_sh2">腾讯微博</a>
+
+            <p>
+                服务热线：<br/>
+                <span>400-123-4567</span>
+            </p>
+        </div>
+        <div class="b_er">
+            <div class="b_er_c"><img src="images/er.gif" /></div>
+            <img src="images/ss.png"/>
+        </div>
+    </div>
+    <div class="btmbg">
+        <div class="btm">
+            备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright© 1号店网上超市 2007-2016，All Rights Reserved. 复制必究 ,
+            Technical Support: Dgg Group <br/>
+            <img src="images/b_1.gif"/>
+            <img src="images/b_2.gif"/>
+            <img src="images/b_3.gif"/>
+            <img src="images/b_4.gif"/>
+            <img src="images/b_5.gif"/>
+            <img src="images/b_6.gif"/>
+        </div>
+    </div>
+    <!--Footer -->
+</footer>
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+<script type="text/javascript" src="../js/layer.js"></script>
+<script type="text/javascript" src="../js/mylayer.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+<script src="../js/fenye_page.js" charset="utf-8"></script>
+<script type="text/javascript">
+function showLoginPanel(){
+	if(cookie.get("username")!=null&&cookie.get("username")!=""){
+		$("#span_l").html("欢迎您: "+cookie.get("username"));
+		$("#show_11").hide();
+		$("#show_12").show();
+	}else{
+		$("#span_l").html("你好! 请");
+		var a = $("<a href='login.html'>登录</a>")
+		$("#span_l").append(a);
+		$("#show_11").show();
+		$("#show_12").hide();
+	}
+}
+function cancellogin(){
+	cookie.set("username","");
+	showLoginPanel();
+	mylayer.tips("退出成功");
+}
+var start = 0;
+var length = 1;
+showLoginPanel();
+
+if(cookie.get("username")!=null&&cookie.get("username")!=""){
+	   console.log("用户已经登录了 可以查看我的订单");
+	   request_total()
+}else{
+	//如果用户未登陆 则跳转到登录页面 然后调回我的订单页面
+	var callback = window.location.href;
+ window.location.href = "login.html?callback="+callback;
+}
+
+
+function loadData(pageid){
+	mylayer.showLoading("数据加载中");
+	   $.ajax({
+		   type:"POST",
+		   url:"../getUserOrders",
+		   data:{
+			   u_id:cookie.get("userid"),
+			   start:(pageid - 1) * length,
+			   length:length
+		   },
+		   dataType:"json",
+		   success:function(data){
+			   console.log(data);
+			   mylayer.closeLoading();
+			   if(data.retcode==="0"){
+				   //将数据取出来  进行显示
+				   createOrderElement(data.data);
+			   }else{
+				   mylayer.showError(data.data);
+			   }
+		   },
+		   error:function(xhr,error,status){
+			   console.log(error);
+		   }
+	   })
+}
+
+//进行界面的显示
+function createOrderElement(data){
+	console.log(data);
+	var content = $("#content");
+	content.empty();
+	//从里面拿数据显示
+	for(var i=0;i<data.length;i++){
+		var order = data[i];
+		var tbody = $("<tbody>");
+		var o_id_tr = $('<tr class="success">\
+						<th colspan="5">订单编号:<span id="orderid">'+order.o_id+'</span><span> 创建时间:'+order.o_ordertime+' </span></th>\
+					</tr>');
+		var title_tr = $('<tr class="warning">\
+						       <th>图片</th>\
+						       <th>商品</th>\
+						       <th>价格</th>\
+						       <th>数量</th>\
+						       <th>小计</th>\
+					      </tr>');
+		tbody.append(o_id_tr);
+		tbody.append(title_tr);
+		for(var j=0;j<order.orderItems.length;j++){
+			var orderItem = order.orderItems[j];
+			//console.log(orderItem);
+			var item_tr = $('<tr class="active">');
+			var item_td_img = $('<td width="30%">');
+			var image = $('<img src="../images/'+orderItem.product.pro_image+'" width="70" height="60">')
+			item_td_img.append(image);
+			item_tr.append(item_td_img);
+		    var item_td_name = $('<td width="30%"><a target="_blank">'+orderItem.product.pro_name+' </a></td>')	
+		 	item_tr.append(item_td_name);
+		    
+		    var item_price_td = $('<td width="20%">'+orderItem.product.pro_price+'</td>')
+		    item_tr.append(item_price_td);
+		    
+		    var item_count_td = $('<td width="10%">'+orderItem.o_count+'</td>')
+		    item_tr.append(item_count_td);
+		
+		    var item_subtotal_td = $('<td width="15%"><span class="subtotal">'+orderItem.o_subtotal+'</span></td>')
+		    item_tr.append(item_subtotal_td);
+		    tbody.append(item_tr);
+		}
+		var order_pay_tr = $('<tr>\
+							<td width="40%"></td>\
+							<td width="30%"></td>\
+							<td colspan="2" width="30%">总计:'+order.o_total+' </td>\
+							<td width="15%">\
+								<button '+(order.o_state==0?'class="btn btn-info"':'class="btn btn-danger" disabled')+'>'+(order.o_state==0?'付款':'已支付')+'</button>\
+							</td>\
+					<tr>');
+		tbody.append(order_pay_tr);
+		content.append(tbody);
+	}
+	//添加付款事件
+	$(".btn-info").on("click",function(e){
+		console.log(1);
+		console.log($(e.target).parent().parent().parent().children(":first-child").find("#orderid").text());
+	})
+}
+
+
+//获取总的条目数
+function request_total(){
+	$.ajax({
+		type:"GET",
+		url:"../totalOrders",
+		dataType:"json",
+		data:{
+			userid:cookie.get("userid")
+		},
+		success:function(data){
+			console.log(data);
+			if(data.retcode==="0"){
+				total = data.data;
+				pageCount =Math.ceil(total/length);
+				console.log(pageCount);
+				$(".zxf_pagediv").createPage({
+					pageNum: pageCount,
+					current: 1,
+					backfun: function(e) {
+						console.log(e);
+						loadData(e.current);
+					}
+				});
+				loadData(1);
+			}
+		},
+		error:function(xhr,error,status){
+			console.log("request_total");
+			console.log(error);
+		}
+	})
+}
+
+$(".car_t").click(function(){
+	window.location.href = "cart.html";
+});
+
+</script>
+
+</body>
+
+</html>

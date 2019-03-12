@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一号店</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+<style type="text/css">
+    	.soubg{
+    		position:fixed;
+    		z-index:9999;
+    	}
+	.nav{
+		width:100%;
+		background-color:#ffffff;
+		font-size:16px;
+	}
+	.psps{
+		color:red;
+		font-size:20px;
+	}
+</style>
+</head>
+<body>
+<!--网页头部-->
+<header>
+    <div class="soubg">
+        <div class="sou fl">
+            <div class="s_city_b">
+                <span>送货至：湖北武汉</span>
+            </div>
+        </div>
+        <div class="fr top_right">
+            <div class="fl">
+                <span id="span_l">你好! 请<a href="login.html">登录</a></span>
+                <a href="register.html" style="color:#ff4e00;" id="show_11">免费注册</a>
+                <b onclick="cancellogin()" style="color:#ff4e00;display:none;cursor:pointer" id="show_12">退出登录</b>
+                &nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|
+            </div>
+            <ul class="ss">
+                <li class="ss_list">
+                    <a href="#">收藏夹</a>
+                </li>
+                <!--需要有向下的小箭头就添加ss_listBg-->
+                <li class="ss_list ss_listBg">
+                    <a href="#">客户服务</a>
+
+                    <div class="ss_list_bg">
+                        <div class="ss_list_c">
+                            <ul>
+                                <li><a href="#">包裹跟踪</a></li>
+                                <li><a href="#">常见问题</a></li>
+                                <li><a href="#">在线退款</a></li>
+                                <li><a href="#">在线投诉</a></li>
+                                <li><a href="#">配送范围</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="ss_list">
+                    <a href="#">网站导航</a>
+                </li>
+            </ul>
+            <span class="fl">&nbsp;|&nbsp;关注我们：</span>
+                <span class="s_sh">
+                    <a href="#" class="sh1">新浪</a>
+                    <a href="#" class="sh2">微信</a>
+                </span>
+                <span class="fr">|&nbsp;
+                    <a href="#">手机版&nbsp;
+                        <img src="images/s_tel.png" align="absmiddle"/>
+                    </a>
+                </span>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="logo">
+            <a href="Index.html">
+                <img src="../images/mainlogo.jpeg" style="width:200px;height:72px;"/>
+            </a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="search" value="" placeholder="请输入关键字" class="s_ipt" id="search"/>
+                <input type="button" value="搜索" class="s_btn" onclick="sousuo()"/>
+            </form>
+            <div class="fl">
+                <a href="#">咖啡</a>
+                <a href="#">iphone 6S</a>
+                <a href="#">新鲜美食</a>
+                <a href="#">蛋糕</a>
+                <a href="#">日用品</a>
+                <a href="#">连衣裙</a>
+            </div>
+        </div>
+        <div class="i_car">
+            <div class="car_t">购物车</div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" id="category">
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	<div class="row" id="content"></div>
+</div>
+
+
+<!--网页底部-->
+<footer class="center">
+    <!-- Footer -->
+    <div class="b_btm_bg b_btm_c">
+        <ul class="b_btm">
+            <li>
+                <a><img src="images/b1.png" width="62" height="62"/></a>
+                <div><h2>正品保障</h2>正品行货 放心购买</div>
+            </li>
+            <li >
+                <a><img src="images/b2.png" width="62" height="62"/></a>
+                <div><h2>满38包邮</h2>满38包邮 免运费</div>
+            </li>
+            <li>
+                <a><img src="images/b3.png" width="62" height="62"/></a>
+                <div><h2>天天低价</h2>天天低价 畅选无忧</div>
+            </li>
+            <li>
+                <a><img src="images/b4.png" width="62" height="62"/></a>
+                <div><h2>准时送达</h2>收货时间由你做主</div>
+            </li>
+        </ul>
+    </div>
+    <div class="b_nav">
+        <dl>
+            <dt><a href="#">新手上路</a></dt>
+            <dd><a href="#">售后流程</a></dd>
+            <dd><a href="#">购物流程</a></dd>
+            <dd><a href="#">订购方式</a></dd>
+            <dd><a href="#">隐私声明</a></dd>
+            <dd><a href="#">推荐分享说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">配送与支付</a></dt>
+            <dd><a href="#">货到付款区域</a></dd>
+            <dd><a href="#">配送支付查询</a></dd>
+            <dd><a href="#">支付方式说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">会员中心</a></dt>
+            <dd><a href="#">资金管理</a></dd>
+            <dd><a href="#">我的收藏</a></dd>
+            <dd><a href="#">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">服务保证</a></dt>
+            <dd><a href="#">退换货原则</a></dd>
+            <dd><a href="#">售后服务保证</a></dd>
+            <dd><a href="#">产品质量保证</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">联系我们</a></dt>
+            <dd><a href="#">网站故障报告</a></dd>
+            <dd><a href="#">购物咨询</a></dd>
+            <dd><a href="#">投诉与建议</a></dd>
+        </dl>
+        <div class="b_tel_bg">
+            <a href="#" class="b_sh1">新浪微博</a>
+            <a href="#" class="b_sh2">腾讯微博</a>
+
+            <p>
+                服务热线：<br/>
+                <span>400-123-4567</span>
+            </p>
+        </div>
+        <div class="b_er">
+            <div class="b_er_c"><img src="images/er.gif" /></div>
+            <img src="images/ss.png"/>
+        </div>
+    </div>
+    <div class="btmbg">
+        <div class="btm">
+            备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright© 1号店网上超市 2007-2016，All Rights Reserved. 复制必究 ,
+            Technical Support: Dgg Group <br/>
+            <img src="images/b_1.gif"/>
+            <img src="images/b_2.gif"/>
+            <img src="images/b_3.gif"/>
+            <img src="images/b_4.gif"/>
+            <img src="images/b_5.gif"/>
+            <img src="images/b_6.gif"/>
+        </div>
+    </div>
+    <!--Footer -->
+</footer>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="../js/layer.js"></script>
+<script src="../js/mylayer.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+<script type="text/javascript">
+function showLoginPanel(){
+	if(cookie.get("username")!=null&&cookie.get("username")!=""){
+		$("#span_l").html("欢迎您: "+cookie.get("username"));
+		$("#show_11").hide();
+		$("#show_12").show();
+	}else{
+		$("#span_l").html("你好! 请");
+		var a = $("<a href='login.html'>登录</a>")
+		$("#span_l").append(a);
+		$("#show_11").show();
+		$("#show_12").hide();
+	}
+}
+function cancellogin(){
+	cookie.set("username","");
+	showLoginPanel();
+	mylayer.tips("退出成功");
+}
+showLoginPanel();
+//分页的参数
+var start = 0;  //分页从0开始
+var length = 8; //分页每页8条数据
+var loadingSwitch = true;
+var current_c_id = GetQueryString("id");
+//实现搜索功能
+function sousuo(){
+	mylayer.showLoading("商品加载中");
+	var search=$("#search").val();
+	console.log(search);
+	$.ajax({
+		type:"GET",
+		url:"../searchContent",
+		data:{
+			search:search,
+			start:0,
+			length:20
+		},
+		dataType:"json",
+		success:function(data){
+			mylayer.closeLoading();
+			var content = $("#content");
+			content.empty();
+			mylayer.closeLoading();
+			console.log("搜索数据");
+			console.log(data);
+			if(data.retcode==="0"){
+				
+				loadingSwitch = false;
+				current_c_id=-1;
+				$("li.active").removeClass("active");
+				
+				for (var i = 0; i < data.data.length; i++) {
+					var product = data.data[i];
+					var img = $("<img src='images/"+product.pro_image+"'/ style='width:185px;height:155px'>");
+					var h4 = $("<h4 style='height:38px;line-height:22px'>"
+							+ product.pro_name + "</h4>");
+					var price = $("<p class='psps'>¥:" + product.pro_price
+							+ "</p>");
+					var div = $("<div class='col-md-3 text-center'>");
+					div.append(img);
+					div.append(h4);
+					div.append(price);
+					var a_on = $("<a href='Product.html?pro_id="+product.pro_id+"'>");
+					a_on.append(div);
+					content.append(a_on);
+				}
+			}else{
+				mylayer.showError(data.data);
+			}
+		},
+		error:function(xhr,error,status){
+			console.log(error);
+			mylayer.showError(error);
+		}
+	})
+}
+
+
+//正则式获取链接参数
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+		//自己写一个接口  携带 分类和商品对应的所有的数据信息
+		//默认请求分类为1的数据信息  点击后分类的id会发生变化
+
+		//发送请求 获取数据信息 
+		//jquery加载完毕后调用的第一个方法
+		$(function() {
+			getCategory();
+			//前面定义了当前请求的分类信息
+			loadingMoreProduct(current_c_id,start,length);
+			//开始监听屏幕的一个滚动事件
+			$(window).scroll(function(){
+				//文档的高度
+				var document_height = $(document).outerHeight();
+				//console.log("document:"+document_height);
+				//窗口的高度
+				var window_height = $(window).height();
+				//console.log("window:"+window_height);
+				//滚动的距离
+				var scroll_distance = $(document).scrollTop();
+				//console.log("滚动距离:"+scroll_distance);
+				//如果滚动到底部的时候   滚动的距离 + 窗口的高度  = 文档的高度
+				//设置滚动到距离 底部还剩余100像素的时候 开始加载数据
+				//这个地方 一直在监听  调用的次数非常多
+				if(document_height-window_height-scroll_distance<100){
+					if(loadingSwitch){
+						loadingSwitch = false;
+						console.log("下一页数据");
+						start+= length;
+						//发送请求 获取下一页的数据
+						loadingMoreProduct(current_c_id,start,length);
+					}
+				}
+			});
+		});
+		
+		function getCategory(){
+			//mylayer.showLoading("分类加载中");
+			//请求所有的导航栏的信息
+			console.log("请求导航信息");
+			$.ajax({
+						type : "GET",
+						url : "../getCategory",
+						dataType : "json",
+						success : function(data) {
+							console.log(data);
+							//mylayer.closeLoading();
+							if (data.retcode === "0") {
+								var ul = $("#category");
+								for (var i = 0; i < data.data.length; i++) {
+									var cate = data.data[i];
+									var aElement = $("<a id='"+cate.c_id+"' href='javascript:void(0)' onclick='getProductByCateId("
+											+ cate.c_id
+											+ ",this)'>"
+											+ cate.c_name + "</a>");
+									var li = null;
+									if (i == current_c_id-1) {
+										li = $("<li class='active'>");
+									} else {
+										li = $("<li>");
+									}
+									li.append(aElement);
+									ul.append(li);
+								}
+							} else {
+								//alert(data.data);
+								mylayer.showError(data.data);
+							}
+						},
+						error : function(xhr, error, status) {
+							console.log(error);
+							mylayer.showError(error);
+						}
+					});
+		}
+
+		function getProductByCateId(cate_id,obj) {
+			console.log(cate_id);  //数值
+			//console.log($(obj).attr("id"));//字符串
+			if(current_c_id!=cate_id){
+				current_c_id = cate_id
+				//需要加载数据
+				//去掉之前的active的css
+				$("li.active").removeClass("active");
+				//当前选中的li处于active
+				if (obj != null) {
+					$(obj).parent().addClass("active");
+			    }
+				//loading 告诉客户在加载数据信息
+				var content = $("#content");
+				content.empty();
+				start = 0;
+				//隐藏 我是有底线的信息
+				$("#bottom").hide();
+				loadingMoreProduct(current_c_id,start,length);
+			}else{
+				console.log("你点击的是相同的分类")
+			}			
+		}
+
+		//加载更多数据的
+		function loadingMoreProduct(cate_id, start, length) {
+			//所有的数据 先走localstorage  判断一下当前是否存在数据  如果存在就 直接走本地的数据
+			//如果本地没有 表示是第一个点击  然后找服务器要数据
+			//只能存储 JSON字符串 到localstorage中
+			if(!window.localStorage){
+	            alert("不支持缓存数据");
+	        }else{
+	        	var cacheData = localStorage.getItem("fenlei_"+cate_id+"_"+start);
+	        	if(cacheData==null){
+	        		console.log("firstData");
+	        		//第一次加载数据
+	        		FirstLoadingData(cate_id,start,length);
+	        	}else{
+	        		//非第一次加载数据  缓存里面有数据
+	        		console.log("加载缓存:"+cate_id+"_"+start);
+	        		//将缓存的数据显示到界面
+	        		var data = JSON.parse(cacheData);
+	        		if(data.retcode==="0"){
+	        			var content = $("#content");
+						for (var i = 0; i < data.data.length; i++) {
+							var product = data.data[i];
+							var img = $("<img src='images/"+product.pro_image+"'/ style='width:185px;height:155px'>");
+							var h4 = $("<h4 style='height:38px;line-height:22px'>"
+									+ product.pro_name + "</h4>");
+							var price = $("<p class='psps'>¥:" + product.pro_price
+									+ "</p>");
+							var div = $("<div class='col-md-3 text-center'>");
+							div.append(img);
+							div.append(h4);
+							div.append(price);
+							var a_on = $("<a href='Product.html?pro_id="+product.pro_id+"'>");
+							a_on.append(div);
+							content.append(a_on);
+						}
+						loadingSwitch=true;
+	        		}else{
+	        			$("#bottom").show();
+	        		}
+	        	}
+	        }
+		}
+		
+		//第一次加载数据信息
+		function FirstLoadingData(cate_id,start,length){
+			//mylayer.showLoading("商品加载中");
+			$.ajax({
+						type : "GET",
+						//添加参数进行分页  查询
+						url : "../getProductByCateId",
+						data : {
+							c_id : cate_id,
+							start : start,
+							length : length
+						},
+						dataType : "json",
+						success : function(data) {
+							console.log(data);
+							mylayer.closeLoading();
+							//填充数据到界面
+							console.log(data);
+							
+							if (data.retcode === "0") {
+								localStorage.setItem("fenlei_"+cate_id+"_"+start,JSON.stringify(data));
+								var content = $("#content");
+								for (var i = 0; i < data.data.length; i++) {
+									var product = data.data[i];
+									var img = $("<img src='images/"+product.pro_image+"'/ style='width:185px;height:155px'>");
+									var h4 = $("<h4 style='height:38px;line-height:22px'>"
+											+ product.pro_name + "</h4>");
+									var price = $("<p class='psps'>¥:" + product.pro_price
+											+ "</p>");
+									var div = $("<div class='col-md-3 text-center'>");
+									div.append(img);
+									div.append(h4);
+									div.append(price);
+									var a_on = $("<a href='Product.html?pro_id="+product.pro_id+"'>");
+									a_on.append(div);
+									content.append(a_on);
+								}
+								loadingSwitch = true;
+							} else {
+								$("#bottom").show();
+								//显示有底线的
+								//mylayer.showError(data.data);
+							}
+						},
+						error : function(xhr, error, status) {
+							console.log(error);
+							//alert(error);
+							mylayer.showError(data.data);
+						}
+					})
+		}
+	</script>
+
+</body>
+
+</html>
